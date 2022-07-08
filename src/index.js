@@ -17,7 +17,7 @@ module.exports = {
 
     io.on('connection', function(socket) {
       console.log("Connection established!");
-      socket.on('join', (message,username) => {
+      socket.on('message', (message,username) => {
         console.log('chat message =',message,username);
 
         //broadcast(except the sender)
