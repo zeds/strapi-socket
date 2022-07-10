@@ -15,7 +15,7 @@
     "message": {
       "type": "string"
     },
-    "booking_id": {
+    "room_id": {
       "type": "biginteger"
     },
     "staff": {

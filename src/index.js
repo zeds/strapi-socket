@@ -17,20 +17,34 @@ module.exports = {
 
     io.on('connection', function(socket) {
       console.log("Connection established!");
-      socket.on('message', (message,username) => {
-        console.log('chat message =',message,username);
 
-        //broadcast(except the sender)
-        //socket.broadcast.emit('chat message', {
-        //  username: username,
-        //  message: message
-        //})
+      let axios = require("axios");
 
-        ////everyone
+      socket.on('chat', async (data) => {
+        console.log("data=",data);
+
+        //everyone
         io.emit('chat message', {
-          username: username,
-          message: message
+          username: data.username,
+          message: data.msg
         })
+
+
+        let strapiData = { // Generating the message data to be stored in Strapi
+          data: {
+            booking_id: 222,
+            message: data.msg,
+            staff: 2
+          },
+        };
+        await axios
+          .post("http://localhost:1337/api/rooms", strapiData)//Storing the messages in Strapi
+          .then((e) => {
+            console.log("success");
+          })
+          .catch((e) => console.log("error", e.message));
+
+
 
       });
     });
