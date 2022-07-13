@@ -4,7 +4,8 @@
   "info": {
     "singularName": "staff",
     "pluralName": "staffs",
-    "displayName": "staff"
+    "displayName": "Staff",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -18,14 +19,15 @@
       "type": "email"
     },
     "avatar": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     },
     "rooms": {
       "type": "relation",

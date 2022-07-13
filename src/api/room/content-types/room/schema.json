@@ -4,7 +4,7 @@
   "info": {
     "singularName": "room",
     "pluralName": "rooms",
-    "displayName": "room",
+    "displayName": "Room",
     "description": ""
   },
   "options": {
@@ -15,14 +15,17 @@
     "message": {
       "type": "string"
     },
-    "room_id": {
-      "type": "biginteger"
-    },
     "staff": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::staff.staff",
       "inversedBy": "rooms"
+    },
+    "name": {
+      "type": "string"
+    },
+    "username": {
+      "type": "string"
     }
   }
 }
